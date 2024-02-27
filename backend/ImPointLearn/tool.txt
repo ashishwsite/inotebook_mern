@@ -28,3 +28,5 @@ kisi user me note add karne ke liye hame pahle user route se login karo ,bhir AU
 content type+= application json is madsatory
 route me : ye batata hai ki : ke baad vali chijo ko param used kar ke get kiya jaata hai 
 RUN BOTH USING :npm run both(because this code made by us manually)
+ALWAY FACING PROBLEM IN CONNECTION WITH MANGOS 
+    1.go to services and  refresh-> go to mongosse and start

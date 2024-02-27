@@ -8,7 +8,7 @@ const { body, validationResult } = require('express-validator');
 router.get('/fetchallnotes', fetchuser, async (req, res) => {
     try {
         const notes = await Note.find({ user: req.user.id });
-          if(notes.length===0) return res.json("No note present yet ,Please add note")// return is mandatory
+        //   if(!notes) return res.json("No note present yet ,Please add note")// return is mandatory
           res.json(notes)
     } catch (error) {
         console.error(error.message);
