@@ -4,6 +4,7 @@ import noteContext from "../context/noteContext"
 const AddNote = () => {
     const context = useContext(noteContext);
     const {addNote} = context;
+    //addNote is function 
 
     const [note, setNote] = useState({title: "", description: "", tag: ""})
 // to form submission

@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("handle sumit is call ")
+
     const response = await fetch("http://localhost:5000/api/auth/login", {
       method: "POST",
       headers: {
@@ -29,10 +30,10 @@ import { useNavigate } from "react-router-dom";
     if (json.success) {
       // Save the authtoken in localStroge
       // setItem is predefine function
+      props. user.setuser(json.mess)
       localStorage.setItem("token", json.authtoken);
       // history ab "/" route par chala jaega automatically (yani ki login karne ke baad home par chala jaega )
       // Navigate('/') both syntex is valid 
-      
       history("/");
       // props.alertshow.setalert({
       //   display:"inline",

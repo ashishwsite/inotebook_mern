@@ -4,7 +4,7 @@ export const Home = (props) => {
 
     return (
         <div> 
-            <Notes data={props.setAlertmess}/>
+            <Notes />
         </div>
     )
 }

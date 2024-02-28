@@ -1,9 +1,10 @@
 import React from 'react'
+import Redux from './Redux/Redux'
 
 const About = () => { 
     return (
         <div>
-            This is About page
+            <Redux/>
         </div>
     )
 }

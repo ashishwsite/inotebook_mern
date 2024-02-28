@@ -3,13 +3,14 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
   
 
-const Navbar = () => {
+const Navbar = (props) => {
     let location = useLocation();
     var navigate=useNavigate()
     useEffect(()=>{
         // console.log("location",location);
     },[location])
     const handlelogout=()=>{
+        props.user.setuser(null)
         localStorage.removeItem('token')
         navigate('./login')
     }

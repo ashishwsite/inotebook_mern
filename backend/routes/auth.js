@@ -98,7 +98,7 @@ router.post('/login', [
     }
     const authtoken = jwt.sign(data, JWT_SECRET);
     success = true;
-    res.json({ "mess":`welcome ${user.name}`, authtoken ,success})// login ho gaya tab authtoken ko send akr raha hau
+    res.json({ "mess":`Welcome ${user.name}`, authtoken ,success})// login ho gaya tab authtoken ko send akr raha hau
 
   } catch (error) {
     console.error(error.message);

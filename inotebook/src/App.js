@@ -15,21 +15,19 @@ import Alert from "./components/Alert";
 import {  useState } from "react";
 
 function App() {
-const [alert,setalert]=useState({display:"none",mess:"this is starting message "});
-
-
+const [user,setuser]=useState()
   return (
     <>
     {/* NoteState is cotext provider so we make its wraper ,so can other componet acces the data from context */}
       <NoteState>
         <Router>
-          <Navbar   /> 
-          <Alert  alert={alert} /> 
+          <Navbar user={{user,setuser}}/> 
+          <Alert  user={{user,setuser}}/> 
           <div className="container">
             <Routes >
               <Route exact path="/" element={<Home />}></Route>
               <Route exact path="/about" element={<About />}> </Route>
-              <Route exact path="/login" element={<Login  alertshow={{alert,setalert}}/>}>  </Route>
+              <Route exact path="/login" element={<Login  user={{user,setuser}}/>}>  </Route>
               <Route exact path="/signup" element={<Signup  />}>  </Route>
             </Routes>
           </div>

@@ -30,7 +30,7 @@ const NoteState = (props) => {
   // send data from body
   // here a function addNote( ) give data {titlte,description,tag} which is then provide to body and then to database
   const addNote = async (title, description, tag) => {
-    // TODO: API Call
+    // TODO:first call  API Call
     // API Call 
     const response = await fetch(`${host}/api/notes/addnote`, {
       method: 'POST',
@@ -44,7 +44,6 @@ const NoteState = (props) => {
       //db me to url hi add kar diya 
       // db me note add hogaya 
     });
-
     const note = await response.json();// databse se sare  note ko featch ho raha hai
     // notes jo pahle se database me hai , note jo new create ho raha hai
     setNotes(notes.concat(note))// setNotes se notes, me , note ko add kar rahe hai UI ke liye 
