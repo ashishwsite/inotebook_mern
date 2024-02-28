@@ -17,7 +17,9 @@ router.get('/',(req,res)=>{
 })
 
 // ROUTE 1: Create a User using: POST "/api/auth/createuser". No login required
+var success=true
 router.post('/createuser', [
+  
   // this is validation array to varify data coming is as per describe
   // validation required in post req
   body('name', 'Enter a valid name').isLength({ min: 3 }),
@@ -53,7 +55,7 @@ router.post('/createuser', [
     const authtoken = jwt.sign(data, JWT_SECRET);
     // res.json(user)
     // response me new user ki authkon send kar raha hua 
-    res.json({ "mess":"new user create","name":user.name,"authtoken": authtoken })
+    res.json({ "mess":"new user create","name":user.name,"authtoken": authtoken,success })
 
   } catch (error) {
     console.error(error.message);
@@ -96,7 +98,7 @@ router.post('/login', [
     }
     const authtoken = jwt.sign(data, JWT_SECRET);
     success = true;
-    res.json({ "mess":`welcome ${user.name}`, authtoken })// login ho gaya tab authtoken ko send akr raha hau
+    res.json({ "mess":`welcome ${user.name}`, authtoken ,success})// login ho gaya tab authtoken ko send akr raha hau
 
   } catch (error) {
     console.error(error.message);

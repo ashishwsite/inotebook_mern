@@ -6,14 +6,17 @@ const AddNote = () => {
     const {addNote} = context;
 
     const [note, setNote] = useState({title: "", description: "", tag: ""})
-
+// to form submission
     const handleClick = (e)=>{
         e.preventDefault();
+        //addNote function context me define hai jo UI ke note me data leta hai aur db ke note me add kar raha hai 
         addNote(note.title, note.description, note.tag);
+        //UI note ko kali kar raha hai
         setNote({title: "", description: "", tag: ""})
     }
 
     const onChange = (e)=>{
+        // this is syntex to set note using input changinh data
         setNote({...note, [e.target.name]: e.target.value})
     }
     return (

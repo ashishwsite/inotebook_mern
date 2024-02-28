@@ -2,12 +2,21 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import noteContext from "../context/noteContext"
 import Noteitem from './Noteitem';
 import AddNote from './AddNote';
+import { useNavigate } from 'react-router-dom';
+
 
 const Notes = () => {
     const context = useContext(noteContext);// useContext( ) ki help se notecontext ko{context variable me save } kar raha hua 
     const { notes, getNotes, editNote } = context;// noteContext ke provider file se ye sab variable ko le raha hua 
+    var navigate=useNavigate();
     useEffect(() => {
-        getNotes()
+        if(localStorage.getItem('token')){
+            getNotes()
+        }
+        else
+        navigate('/login')
+
+       
         // eslint-disable-next-line
     }, [])
     const ref = useRef(null)

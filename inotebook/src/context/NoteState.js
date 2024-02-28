@@ -17,7 +17,8 @@ const NoteState = (props) => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        "authtoken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjVkZTEwNDM1Nzc5MGFlYjA4MDU3ZTljIn0sImlhdCI6MTcwOTA3ODMwMn0.bqEVVXpyCywmvslp9srK7g9shcXiiPxZ9Y9juetQ_Bw"
+        // taking authtoken from local storage
+        "authtoken": localStorage.getItem('token')
       }
     });
     // fetch() return type convertd into json formate 
@@ -35,14 +36,18 @@ const NoteState = (props) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        "authtoken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjEzMWRjNWUzZTQwMzdjZDQ3MzRhMDY2In0sImlhdCI6MTYzMDY2OTU5Nn0.hJS0hx6I7ROugkqjL2CjrJuefA3pJi-IU5yGUbRHI4Q"
+        // here authtoken is come from localStorage
+        "authtoken": localStorage.getItem('token')
       },
-      // body take data and put it into database
+      // body take data from addNote function parameter and put it into database
       body: JSON.stringify({title, description, tag})
+      //db me to url hi add kar diya 
+      // db me note add hogaya 
     });
 
-    const note = await response.json();// databse se note ko featch ho raha hai
-    setNotes(notes.concat(note))// setNotes se notes me note ko add kar rahe hai 
+    const note = await response.json();// databse se sare  note ko featch ho raha hai
+    // notes jo pahle se database me hai , note jo new create ho raha hai
+    setNotes(notes.concat(note))// setNotes se notes, me , note ko add kar rahe hai UI ke liye 
   }
 
   // Delete a Note
@@ -52,10 +57,11 @@ const NoteState = (props) => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        "authtoken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjEzMWRjNWUzZTQwMzdjZDQ3MzRhMDY2In0sImlhdCI6MTYzMDY2OTU5Nn0.hJS0hx6I7ROugkqjL2CjrJuefA3pJi-IU5yGUbRHI4Q"
+        "authtoken": localStorage.getItem('token')
       }
     });
-    const json = response.json(); 
+    // const json = response.json(); 
+    console.log(response)
     const newNotes = notes.filter((note) => { return note._id !== id })// database me se note ko delelte kar raha hai aur bhir ,bach hua note ko notes me set kar rha hai
     setNotes(newNotes)
   }
@@ -67,12 +73,12 @@ const NoteState = (props) => {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        "authtoken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjEzMWRjNWUzZTQwMzdjZDQ3MzRhMDY2In0sImlhdCI6MTYzMDY2OTU5Nn0.hJS0hx6I7ROugkqjL2CjrJuefA3pJi-IU5yGUbRHI4Q"
+        "authtoken": localStorage.getItem('token')
       },
       body: JSON.stringify({title, description, tag})
     });
-    const json = await response.json(); 
-
+    // const json = await response.json(); 
+    console.log(response)
      let newNotes = JSON.parse(JSON.stringify(notes))//newNotes variable me database ke  notes ko fetch () kar raha hai
     // Logic to edit in client
     for (let index = 0; index < newNotes.length; index++) {
