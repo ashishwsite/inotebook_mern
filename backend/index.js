@@ -5,6 +5,7 @@ connectToMongo();
 const app = express()
 const port = 5000
 app.use(cors())
+const path = require("path");
 app.use(express.json())
 // // first url which to check the server by defalut this requst  through this url is 
 // app.get('/',(req,res)=>{
