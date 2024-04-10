@@ -14,7 +14,7 @@ import Signup from './components/Singup';
 import Alert from "./components/Alert";
 import {  useState } from "react";
 
-function App() {
+function App() { 
 const [user,setuser]=useState()
   return (
     <>

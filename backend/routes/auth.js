@@ -13,7 +13,7 @@ router.get('/',(req,res)=>{
   var bodyData=req.body;
   console.log("req body data",bodyData)
   console.log("this is data on get request")
- return  res.json({"mess":"this is send from url hit localhodt:5000/api/auth ,from router/auth.js"})
+ return  res.json({"mess ON GEt":"this is send from url hit localhodt:5000/api/auth ,from router/auth.js"})
 })
 
 // ROUTE 1: Create a User using: POST "/api/auth/createuser". No login required

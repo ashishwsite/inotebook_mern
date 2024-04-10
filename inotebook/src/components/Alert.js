@@ -1,5 +1,4 @@
 import React from "react";
-
 function Alert(props) {
   // const [alert,setalert]=useState({display:"",mess:""});
   return (
