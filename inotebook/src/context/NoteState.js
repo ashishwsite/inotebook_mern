@@ -4,7 +4,7 @@ import { useState } from "react";
 //NoteState is a provider file in which all function ,filed are written which are acess any where and any time 
 // write all function and variable here
 const NoteState = (props) => {
-  const host = "http://localhost:5000"
+  const host = "https://inotebook-backend-ramashishs-projects.vercel.app/"
   const notesInitial = []
   const [notes, setNotes] = useState(notesInitial)
 

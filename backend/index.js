@@ -8,13 +8,13 @@ app.use(cors())
 const path = require("path");
 app.use(express.json())
 // // first url which to check the server by defalut this requst  through this url is 
-// app.get('/',(req,res)=>{
-// res.send("hello ramshish it is generated on get reqest of URl(loacalhost:5000/) ")
-// })
-// // seond your to check route 
-app.get('/',(req,res)=>{
-  res.send("this shown whenever  your requst is / or deafult")
+app.use('/',(req,res)=>{
+res.send("hello ramshish it is generated on get reqest of URl(loacalhost:5000/) ")
 })
+// // seond your to check route 
+// app.get('/',(req,res)=>{
+//   res.send("this shown whenever  your requst is / or deafult")
+// })
 // Available Routes ksi aur folder se rout ko lekar hit kar rah hua
 // app.use(route,location) to hit rote from other file
 app.use('/api/auth', require('./routes/auth'))// require(location of file where route is presnt)
