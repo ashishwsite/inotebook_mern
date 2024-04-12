@@ -34,7 +34,7 @@ import { useNavigate } from "react-router-dom";
       localStorage.setItem("token", json.authtoken);
       // history ab "/" route par chala jaega automatically (yani ki login karne ke baad home par chala jaega )
       // Navigate('/') both syntex is valid 
-      history("/");
+      history("/home");
       // props.alertshow.setalert({
       //   display:"inline",
       //   mess:"login successfully"
