@@ -1,5 +1,7 @@
 import React from 'react'
 import Redux from './Redux/Redux'
+import img1 from './images/inotebook1.jpg'
+import img2 from './images/inotebook2.jpg'
 
 const About = () => { 
     return (
@@ -41,10 +43,10 @@ const About = () => {
 <br></br>
 <section id="pics" className="pics" style={{display:"flex",alignItems:'center',justifyContent:"center"}}>
       <div className="col-lg-6 d-flex align-items-center justify-content-center aos-init aos-animate" data-aos="fade-right" data-aos-delay="100">
-        <img src="https://i-notebook-app-website-download.vercel.app/assets/img/leftIMG.png" style={{maxWidth: "45%"}} className="img-fluid" alt=""/>
+        <img src={img1} style={{maxWidth: "45%"}} className="img-fluid" alt=""/>
       </div>
       <div className="col-lg-6 d-flex align-items-center justify-content-center aos-init aos-animate" data-aos="fade-left" data-aos-delay="100">
-        <img src="https://i-notebook-app-website-download.vercel.app/assets/img/rightIMG.png" style={{maxWidth: "45%"}} className="img-fluid" alt=""/>
+        <img src={img2} style={{maxWidth: "45%"}} className="img-fluid" alt=""/>
       </div>
     
 </section>

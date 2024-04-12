@@ -14,7 +14,7 @@ const Inotebook = () => {
           </div> */}
         </div>
         <div className="col-lg-6 order-1 order-lg-2 hero-img d-flex justify-content-center aos-init aos-animate" data-aos="zoom-in" data-aos-delay="200">
-          <img src="https://i-notebook-app-website-download.vercel.app/assets/img/hero-img.png" className="img-fluid animated" style={{maxWidth: "45%"}} alt=""/>
+          <img src="https://is2-ssl.mzstatic.com/image/thumb/Purple2/v4/cf/07/6a/cf076aa9-8162-c0a4-d42b-54fe27596c15/mzl.burfnarc.png/750x750bb.jpeg" className="img-fluid animated" style={{maxWidth: "45%"}} alt=""/>
         </div>
       </div>
       <About/>
