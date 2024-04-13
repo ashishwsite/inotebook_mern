@@ -15,7 +15,7 @@ const About = () => {
               <h2>About Us</h2>
             </div>
             <div className="content" >
-              <p style={{fontSize:'2em'}}>
+              <p style={{fontSize:'2rem'}}>
                 Welcome to our note-taking website, where you can easily create,
                 read, update, and delete notes. Our user-friendly interface
                 makes it simple to organize and manage your notes. We take
@@ -27,7 +27,7 @@ const About = () => {
             </div>
 
             <div className="points" >
-              <ul style={{fontSize:'2.2em', color:'purple'}}>
+              <ul style={{fontSize:'2.2rem', color:'purple'}}>
                 <li>
                   <i className="ri-check-double-line"></i> Safe and Accessible:
                   Store notes securely and access them from any device with an
