@@ -1,3 +1,17 @@
+1.Location hook: it is hook that containe location of current url and return current url.
+2.location hook return object => location.pathname for current url
+//sabi functiona and variable are define in NoteState.js file but , import and used in app.js as wraper 
+// har jagah NoteContext nikal k import karke , useContext ki help se NoteState k attribute ko used karenge 
+// even NoteState Me bhi provider ki tarah sirf NoteContext hi used hoga 
+it db is prject=first->inotobookdb
+
+
+
+
+
+
+
+
 to make image resize : link (https://www.iloveimg.com/)
 
 fronent idea site: https://i-notebook-app-website-download.vercel.app/

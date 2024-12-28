@@ -1,20 +1,23 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import NoteContext from "../context/NoteContext";
 
  function Login (props) {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const Context=useContext(NoteContext)
+  const {setUserName}=Context
   let history =  useNavigate();
   
  
 
-  const handleSubmit = async (e) => {
+  const loginhandle = async (e) => {
     e.preventDefault();
-    console.log("handle sumit is call ")
-
-    const response = await fetch("https://inotebook-backend-ramashishs-projects.vercel.app/api/auth/login", {
+    // console.log("handle login call ")
+      const host = "https://inotebook-backend-ramashishs-projects.vercel.app"
+        const response = await fetch(`${host}/api/notes/login`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
         // "authtoken":"pasteauthtoken here"
       },
       // creadentail me ui se data ko fill kar liya gaya hai isliye ham body me email,password credential se le sakte hai
@@ -26,19 +29,15 @@ import { useNavigate } from "react-router-dom";
     });
     // fetch() se jo respone mila hai use json me convert karta hau 
     const json = await response.json();
-    console.log(json);
+    // console.log({"response when login call: ":json});
     if (json.success) {
       // Save the authtoken in localStroge
       // setItem is predefine function
-      props. user.setuser(json.mess)
-      localStorage.setItem("token", json.authtoken);
+      localStorage.setItem("token", json.Authorization);
+    
       // history ab "/" route par chala jaega automatically (yani ki login karne ke baad home par chala jaega )
       // Navigate('/') both syntex is valid 
       history("/home");
-      // props.alertshow.setalert({
-      //   display:"inline",
-      //   mess:"login successfully"
-      // })
       alert("login success")
       // props.showAlert("create sucfuuly","success")
      
@@ -54,9 +53,9 @@ import { useNavigate } from "react-router-dom";
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className="mt-3" onSubmit={loginhandle}>
         <div className="mb-3">
-          <label htmlFor="email" className="form-label">
+          <label htmlFor="email" className="form-label fs-5 fw-bold ">
             Email address
           </label>
           <input
@@ -73,7 +72,7 @@ import { useNavigate } from "react-router-dom";
           </div>
         </div>
         <div className="mb-3">
-          <label htmlFor="password" className="form-label">
+          <label htmlFor="password" className="form-label fs-5 text-dark fw-bold">
             Password
           </label>
           <input
@@ -85,7 +84,6 @@ import { useNavigate } from "react-router-dom";
             id="password"
           />
         </div>
-
         <button type="submit" className="btn btn-primary">
           Submit
         </button>

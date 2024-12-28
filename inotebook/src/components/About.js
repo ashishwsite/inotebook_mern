@@ -1,93 +1,39 @@
-import React from "react";
-import Redux from "./Redux/Redux";
-import img1 from "./images/inotebook1.jpg";
-import img2 from "./images/inotebook2.jpg";
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import aboutImage from './images/inotebook2.jpg';  // Place your image in the src/assets folder
 
 const About = () => {
-  return (
-    <div>
-      <main id="main">
-        {/* <!-- ======= About Us Section ======= --> */}
-        <section id="about" className="about">
-          {/* <div className="container aos-init aos-animate" data-aos="fade-up"> */}
-          <div>
-            <div className="section-title">
-              <h2>About Us</h2>
+    return (
+        <div className="container my-5">
+            <div className="row align-items-center">
+                <div className="col-md-6">
+                    <h1 className="mb-4">About iNotebook</h1>
+                    <p>
+                        Welcome to <strong>iNotebook</strong>, your personal note-taking web app. iNotebook helps you organize and manage your notes efficiently.
+                        Create, view, update, and delete your notes in a seamless and secure environment. 
+                    </p>
+                    <h3 className="mt-4">Features:</h3>
+                    <ul className="list-group list-group-flush">
+                  <li className="list-group-item bg-transparent border rounded-3 p-3 mb-2 shadow-sm hover:bg-light hover:shadow-lg">
+                    Create personal notes easily
+                  </li>
+                  <li className="list-group-item bg-transparent border rounded-3 p-3 mb-2 shadow-sm hover:bg-light hover:shadow-lg">
+                    Update existing notes in real-time
+                  </li>
+                  <li className="list-group-item bg-transparent border rounded-3 p-3 mb-2 shadow-sm hover:bg-light hover:shadow-lg">
+                    View and organize all notes
+                  </li>
+                  <li className="list-group-item bg-transparent border rounded-3 p-3 mb-2 shadow-sm hover:bg-light hover:shadow-lg">
+                    Secure your data with user authentication
+                  </li>
+                  </ul>
+                </div>
+                <div className="col-md-6 text-center">
+                    <img src={aboutImage} alt="About iNotebook" className="img-fluid rounded shadow" />
+                </div>
             </div>
-            <div className="content" >
-              <p style={{fontSize:'2rem'}}>
-                Welcome to our note-taking website, where you can easily create,
-                read, update, and delete notes. Our user-friendly interface
-                makes it simple to organize and manage your notes. We take
-                security and privacy seriously, your notes are always kept safe
-                with advanced encryption techniques. If you have any questions
-                or concerns, please don't hesitate to contact us.
-              </p>
-              {/* <a href="#" className="btn-learn-">Learn More</a> */}
-            </div>
-
-            <div className="points" >
-              <ul style={{fontSize:'2.2rem', color:'purple'}}>
-                <li>
-                  <i className="ri-check-double-line"></i> Safe and Accessible:
-                  Store notes securely and access them from any device with an
-                  internet connection.
-                </li>
-                <li>
-                  <i className="ri-check-double-line"></i> Organized Notes: Keep
-                  notes organized with folders, tags, and categories, and easily
-                  search for specific information.
-                </li>
-                <li>
-                  <i className="ri-check-double-line"></i> Advanced Encryption:
-                  iNotebook uses advanced encryption techniques to protect
-                  sensitive information both in transit and at rest.
-                </li>
-              </ul>
-              {/* <!-- <a href="#" className="btn-learn-more">Learn More</a> --> */}
-            </div>
-          </div>
-        </section>
-        {/* <!-- End About Us Section --> */}
-
-        {/* <!-- ======= Skills Section ======= --> */}
-        <br></br>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            gap: "20px",
-            justifyContent: "center",
-          }}
-        >
-          <div>
-            <img
-              src={img1} className="img-fluid"
-              style={{
-                border: "solid green 15px",
-               
-                borderRadius: "10px",
-              }}
-              alt=""
-            />
-          </div>
-          <div>
-            <img className="img-fluid"
-              src={img2}
-              style={{
-                border: "solid gray 15px",
-                
-                borderRadius: "10px",
-              }}
-              alt=""
-            />
-          </div>
         </div>
-        {/* <!-- End Skills Section --> */}
-      </main>
-    </div>
-  );
+    );
 };
 
 export default About;

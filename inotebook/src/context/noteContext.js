@@ -1,3 +1,6 @@
 import  { createContext } from "react";
-const noteContext=createContext()
-export default noteContext;
+// This is file , 
+// using CreteContext new context is created 
+// here Context = noteContext
+const NoteContext=createContext()
+export default NoteContext;

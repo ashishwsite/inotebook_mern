@@ -11,7 +11,8 @@ const Signup = (props) => {
       const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("handle sumit is call ")
-        const response = await fetch("https://inotebook-backend-xi.vercel.app/api/auth/createuser", {
+        const host = "https://inotebook-backend-ramashishs-projects.vercel.app"
+        const response = await fetch(`${host}/api/notes/login`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

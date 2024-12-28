@@ -8,7 +8,7 @@ app.use(cors())
 const path = require("path");
 app.use(express.json())
 // // first url which to check the server by defalut this requst  through this url is 
-app.use('/',(req,res)=>{
+app.get('/',(req,res)=>{
 res.send("hello ramshish it is generated on get reqest of URl(loacalhost:5000/) ")
 })
 // // seond your to check route 

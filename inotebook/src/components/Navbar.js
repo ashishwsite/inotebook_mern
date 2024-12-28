@@ -1,16 +1,18 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import NoteContext from '../context/NoteContext';
 
   
 
 const Navbar = (props) => {
+    const Context=useContext(NoteContext)
+    const {setUserName, setNotes}=Context
     let location = useLocation();
     var navigate=useNavigate()
     useEffect(()=>{
         // console.log("location",location);
     },[location])
     const handlelogout=()=>{
-        props.user.setuser(null)
         localStorage.removeItem('token')
         navigate('./login')
     }

@@ -1,11 +1,13 @@
-import NoteContext from "./noteContext";
+import NoteContext from "./NoteContext";
 import { useState } from "react";
 //THIS IS PROVIDER FILE FROM WHICH ALL DATA IS FETCH
 //NoteState is a provider file in which all function ,filed are written which are acess any where and any time 
 // write all function and variable here
+// defination of noteContext
 const NoteState = (props) => {
   const host = "https://inotebook-backend-ramashishs-projects.vercel.app"
-  const notesInitial = []
+  // const host="http://localhost:5000"
+  const notesInitial=[]
   const [notes, setNotes] = useState(notesInitial)
 
   // Get all Notes from database using fetch()
@@ -18,13 +20,18 @@ const NoteState = (props) => {
       headers: {
         'Content-Type': 'application/json',
         // taking authtoken from local storage
-        "authtoken": localStorage.getItem('token')
+        "Authorization": localStorage.getItem('token')
       }
     });
-    // fetch() return type convertd into json formate 
-    const json = await response.json() 
-     // note is set from featch() return type
-    setNotes(json)
+    
+    const ResponseNote = await response.json();
+    console.log("response after fetch note",ResponseNote)
+    if (ResponseNote) {
+      // setNotes((prevNotes) => prevNotes.concat(ResponseNote));
+      setNotes(ResponseNote);
+    } else {
+      console.error("Invalid note returned from API");
+    }
   }
   // Add a Note to the database using featch()
   // send data from body
@@ -37,16 +44,19 @@ const NoteState = (props) => {
       headers: {
         'Content-Type': 'application/json',
         // here authtoken is come from localStorage
-        "authtoken": localStorage.getItem('token')
+        // ehen user login /create account its token is store in  localstorage
+        "Authorization": localStorage.getItem('token')
       },
       // body take data from addNote function parameter and put it into database
       body: JSON.stringify({title, description, tag})
       //db me to url hi add kar diya 
       // db me note add hogaya 
     });
-    const note = await response.json();// databse se sare  note ko featch ho raha hai
+    
+    const ResponseNote = await response.json();// databse se sare  note ko featch ho raha hai
+    console.log({"response":ResponseNote})
     // notes jo pahle se database me hai , note jo new create ho raha hai
-    setNotes(notes.concat(note))// setNotes se notes, me , note ko add kar rahe hai UI ke liye 
+    setNotes(ResponseNote)// setNotes se notes, me , note ko add kar rahe hai UI ke liye 
   }
 
   // Delete a Note
@@ -59,10 +69,10 @@ const NoteState = (props) => {
         "authtoken": localStorage.getItem('token')
       }
     });
-    // const json = response.json(); 
-    console.log(response)
-    const newNotes = notes.filter((note) => { return note._id !== id })// database me se note ko delelte kar raha hai aur bhir ,bach hua note ko notes me set kar rha hai
-    setNotes(newNotes)
+    const json = response.json(); 
+    console.log(json)
+    const ResponseNote = notes.filter((note) => { return note._id !== id })// database me se note ko delelte kar raha hai aur bhir ,bach hua note ko notes me set kar rha hai
+    setNotes(ResponseNote)
   }
 
   // Edit a Note
@@ -95,7 +105,7 @@ const NoteState = (props) => {
   return (
     // this syntex to tranfer data in context 
     // <contextName.Provider value={{all varaible and function which want to transfer}}>{props.children}</contextName./Provider>
-    <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote, getNotes }}>
+    <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote, getNotes, }}>
       {props.children}
     </NoteContext.Provider>
   )
