@@ -8,11 +8,8 @@ import Navbar from './components/Navbar';
 import { Home } from './components/Home';
 import About from './components/About';
 import NoteState from "./context/NoteState";
-import NoteContext from "./context/NoteContext";
-
 import Login from './components/Login'
 import Signup from './components/Singup';
-import {  useState } from "react";
 import Inotebook from "./components/Inotebook";
 import Footer from "./components/Footer";
 
